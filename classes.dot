@@ -1,0 +1,45 @@
+digraph "classes" {
+charset="utf-8"
+rankdir=BT
+"0" [label="{Axisymmetric2dSimulation|\l|}", shape="record"];
+"1" [label="{BaseProfile|\l|place_particles(particles_per_cell)\lweigh_particles(particle_positions)\l}", shape="record"];
+"2" [label="{BeamDrain|\l|finish_layer(xi)\lpush_beam_slice(beam_slice)\lpush_lost(time, beam_slice)\l}", shape="record"];
+"3" [label="{BeamSlice|M\ldt : ndarray\lid\llost : ndarray\lnlost : int\lp_r\lp_z\lparticles : ndarray, NoneType\lq_m\lq_norm\lr\lremaining_steps : ndarray\lsize : NoneType\lstatus : ndarray\lxi\l|concatenate(other_slice)\lget_subslice(begin, end)\lswap_particles(i, j)\l}", shape="record"];
+"4" [label="{BeamSource|\l|get_beam_slice(xi_max, xi_min)\l}", shape="record"];
+"5" [label="{ChannelCylindricalProfile|min_plasma_radius\l|}", shape="record"];
+"6" [label="{Config|config_values\lconfig_values : dict\l|get(option_name, fallback)\lgetbool(option_name, fallback)\lgetfloat(option_name, fallback)\lgetint(option_name, fallback)\lset(option_name, option_value)\l}", shape="record"];
+"7" [label="{Currents|j_f\lj_r\lj_z\lrho\l|normalize(cell_volume)\l}", shape="record"];
+"8" [label="{CylindricalPlasmaSolver|corrector_steps\lcurrents_computer\lfields\lnoisereductor_enabled\lparticles_mover\lpath_lim\lrho_beam_arr : list\lsubstepping_max_depth\lsubstepping_sensitivity\lxi_step_p\l|step_dxi(particles, fields, rho_beam)\l}", shape="record"];
+"9" [label="{CylindricalProfile|max_radius\lr_step\l|cylindrical_weights(particle_positions)\l}", shape="record"];
+"10" [label="{DebugDrain|\l|finish_layer(xi)\lget_beam_slice()\lpush_beam_slice(beam_slice)\lpush_lost(time, beam_slice)\l}", shape="record"];
+"11" [label="{DebugSource|\l|get_beam_slice(xi_start, xi_end)\lget_debug_slice()\l}", shape="record"];
+"12" [label="{FieldComputer|r_step : float\l|compute_fields(fields, rho_beam, currents_previous, currents, xi_step_p)\l}", shape="record"];
+"13" [label="{Fields|B_f : ndarray\lB_z : ndarray\lE_f : ndarray\lE_r : ndarray\lE_z : ndarray\l|average(other)\linterpolate(r, r_step)\l}", shape="record"];
+"14" [label="{GaussianCylindricalProfile|max_plasma_radius\lplasma_width\l|weigh_particles(particle_positions)\l}", shape="record"];
+"15" [label="{MemoryBeamDrain|\l|beam_slice()\lfinish_layer(xi)\lpush_beam_slice(beam_slice)\lpush_lost(time, beam_slice)\l}", shape="record"];
+"16" [label="{MemoryBeamSource|\l|get_beam_slice(xi_max, xi_min)\l}", shape="record"];
+"17" [label="{ParticleMover|config\lmax_radius\lr_step\l|move_particles(fields, particles, noise_amplitude, xi_step_p)\l}", shape="record"];
+"18" [label="{Particles|age\lm\lp_f\lp_r\lp_z\lq\lr\l|copy()\l}", shape="record"];
+"19" [label="{Plane2dSimulation|\l|}", shape="record"];
+"20" [label="{PusherAndSolver|config\llayout_beam_slice\lmove_beam_slice\ln_cells\lr_step : float\lsolver\lwindow_length\lxi_layers_num : int\lxi_step_p\l|step_dt(plasma_particles, plasma_fields, beam_source, beam_drain, t)\l}", shape="record"];
+"21" [label="{RhoJComputer|cell_volume\ln_cells\lr_step\l|compute_rhoj(particles)\l}", shape="record"];
+"22" [label="{StepwiseCylindricalProfile|max_plasma_radius\lplasma_width\l|}", shape="record"];
+"23" [label="{SubChannelCylindricalProfile|min_plasma_radius\lplasma_density2\lplasma_width\lplasma_width2\l|weigh_particles(particle_positions)\l}", shape="record"];
+"24" [label="{UniformCylindricalProfile|\l|weigh_particles(particle_positions)\l}", shape="record"];
+"25" [label="{UniformPlacedCylindricalProfile|max_plasma_radius\lmin_plasma_radius : int\l|place_particles(particles_per_cell)\l}", shape="record"];
+"5" -> "24" [arrowhead="empty", arrowtail="none"];
+"9" -> "1" [arrowhead="empty", arrowtail="none"];
+"10" -> "2" [arrowhead="empty", arrowtail="none"];
+"11" -> "4" [arrowhead="empty", arrowtail="none"];
+"14" -> "25" [arrowhead="empty", arrowtail="none"];
+"15" -> "2" [arrowhead="empty", arrowtail="none"];
+"16" -> "4" [arrowhead="empty", arrowtail="none"];
+"22" -> "24" [arrowhead="empty", arrowtail="none"];
+"23" -> "25" [arrowhead="empty", arrowtail="none"];
+"24" -> "25" [arrowhead="empty", arrowtail="none"];
+"25" -> "9" [arrowhead="empty", arrowtail="none"];
+"8" -> "20" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="solver", style="solid"];
+"12" -> "8" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="fields", style="solid"];
+"17" -> "8" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="particles_mover", style="solid"];
+"21" -> "8" [arrowhead="diamond", arrowtail="none", fontcolor="green", label="currents_computer", style="solid"];
+}

@@ -1,0 +1,49 @@
+digraph "packages" {
+charset="utf-8"
+rankdir=BT
+"0" [label="lcode2dPy", shape="box"];
+"1" [label="lcode2dPy.beam", shape="box"];
+"2" [label="lcode2dPy.beam.beam_calculate", shape="box"];
+"3" [label="lcode2dPy.beam.beam_io", shape="box"];
+"4" [label="lcode2dPy.beam.beam_slice", shape="box"];
+"5" [label="lcode2dPy.beam.weights", shape="box"];
+"6" [label="lcode2dPy.config", shape="box"];
+"7" [label="lcode2dPy.config.config", shape="box"];
+"8" [label="lcode2dPy.diagnostics", shape="box"];
+"9" [label="lcode2dPy.diagnostics.process", shape="box"];
+"10" [label="lcode2dPy.diagnostics.targets", shape="box"];
+"11" [label="lcode2dPy.plasma", shape="box"];
+"12" [label="lcode2dPy.plasma.data", shape="box"];
+"13" [label="lcode2dPy.plasma.fields", shape="box"];
+"14" [label="lcode2dPy.plasma.gamma", shape="box"];
+"15" [label="lcode2dPy.plasma.initialization", shape="box"];
+"16" [label="lcode2dPy.plasma.move", shape="box"];
+"17" [label="lcode2dPy.plasma.ode", shape="box"];
+"18" [label="lcode2dPy.plasma.profiles", shape="box"];
+"19" [label="lcode2dPy.plasma.rhoj", shape="box"];
+"20" [label="lcode2dPy.plasma.solver", shape="box"];
+"21" [label="lcode2dPy.plasma.weights", shape="box"];
+"22" [label="lcode2dPy.push_solver", shape="box"];
+"23" [label="lcode2dPy.simulation", shape="box"];
+"24" [label="lcode2dPy.simulation.axisymmetric", shape="box"];
+"25" [label="lcode2dPy.simulation.plane", shape="box"];
+"1" -> "2" [arrowhead="open", arrowtail="none"];
+"1" -> "4" [arrowhead="open", arrowtail="none"];
+"2" -> "5" [arrowhead="open", arrowtail="none"];
+"3" -> "4" [arrowhead="open", arrowtail="none"];
+"6" -> "6" [arrowhead="open", arrowtail="none"];
+"12" -> "21" [arrowhead="open", arrowtail="none"];
+"13" -> "12" [arrowhead="open", arrowtail="none"];
+"13" -> "17" [arrowhead="open", arrowtail="none"];
+"15" -> "12" [arrowhead="open", arrowtail="none"];
+"15" -> "18" [arrowhead="open", arrowtail="none"];
+"19" -> "12" [arrowhead="open", arrowtail="none"];
+"19" -> "14" [arrowhead="open", arrowtail="none"];
+"19" -> "21" [arrowhead="open", arrowtail="none"];
+"20" -> "13" [arrowhead="open", arrowtail="none"];
+"20" -> "16" [arrowhead="open", arrowtail="none"];
+"20" -> "19" [arrowhead="open", arrowtail="none"];
+"22" -> "1" [arrowhead="open", arrowtail="none"];
+"22" -> "2" [arrowhead="open", arrowtail="none"];
+"22" -> "20" [arrowhead="open", arrowtail="none"];
+}
