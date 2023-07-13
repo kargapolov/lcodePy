@@ -127,7 +127,7 @@ def move_estimate_wo_fields_numba(xi_step, reflect_boundary, m, x_init, y_init,
     # TODO: Do we want to perform this checking for all particles? Doesn't we
     #       lose accuracy then?
     reflect = reflect_boundary
-    x, y = x_init + x_offt, y_init + y_offt
+    x, y = np.asarray(x_init + x_offt), np.asarray(y_init + y_offt)
 
     x[x >= +reflect] = +2 * reflect - x[x >= +reflect]
     x[x <= -reflect] = -2 * reflect - x[x <= -reflect]
